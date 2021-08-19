@@ -17,7 +17,7 @@ import {
   BOUNDS,
   MAX_BOUNDS,
 } from "./utils";
-import { CenterButton, ClearBoundsButton, ShowRasterButton } from "./buttons";
+import { CenterButton, ClearBoundsButton } from "./buttons";
 import addQueryBoxToMap from "./queryBox";
 
 import "./Map.scss";
@@ -32,7 +32,9 @@ const Map = forwardRef(
       setMapbox = ()=>{},
       mapStyle,
       mapSources={},
-      mapLayers=[]
+      mapLayers=[],
+      extraButtons=[],
+      extraButtonsRefs=[]
     },
     mapRef
   ) => {
@@ -41,13 +43,11 @@ const Map = forwardRef(
     const [lng, setLng] = useState(DEFAULT_LNG);
     const [lat, setLat] = useState(DEFAULT_LAT);
     const [zoom, setZoom] = useState(DEFAULT_ZOOM);
-    const [showRaster, setShowRaster] = useState(false);
 
     const mapContainerRef = createRef();
 
     const centerButtonRef = createRef();
     const clearBoundsButtonRef = createRef();
-    const showRasterButtonRef = createRef();
 
     /*
     Effect triggered only once to initialize the map and its callbacks.
@@ -79,7 +79,9 @@ const Map = forwardRef(
       const navControl = new mapboxgl.NavigationControl();
       navControl._container.appendChild(centerButtonRef.current);
       navControl._container.appendChild(clearBoundsButtonRef.current);
-      navControl._container.appendChild(showRasterButtonRef.current);
+      extraButtonsRefs.forEach(ref=>
+        navControl._container.appendChild(ref.current)
+      )
       map.addControl(navControl, "top-right");
 
       map.addControl(new mapboxgl.ScaleControl());
@@ -150,31 +152,6 @@ const Map = forwardRef(
       [lng, lat, zoom]
     );
 
-    // Effect to show or hide the raster background
-    // TODO: MAKE GENERIC
-    useEffect(() => {
-      if (map) {
-        if (showRaster) {
-          map.setLayoutProperty("cadaster_raster", "visibility", "visible");
-          map.setPaintProperty("cadaster_raster", "raster-opacity", 1.0);
-          map.setLayoutProperty("parcel_fill_grayscale", "visibility", "none");
-          mapLayers.forEach(({layer})=>{
-            if(layer.type==="fill"){
-              map.setPaintProperty(layer.id, "fill-opacity", 0.4);
-            }
-          })
-        } else {
-          map.setLayoutProperty("cadaster_raster", "visibility", "none");
-          map.setPaintProperty("cadaster_raster", "raster-opacity", 0);
-          map.setLayoutProperty("parcel_fill_grayscale", "visibility", "visible");
-          mapLayers.forEach(({layer})=>{
-            if(layer.type==="fill"){
-              map.setPaintProperty(layer.id, "fill-opacity", 1);  
-            }
-          })
-        }
-      }
-    }, [showRaster, map, mapLayers]);
 
     useImperativeHandle(mapRef, () => ({
       mapbox: map,
@@ -198,10 +175,7 @@ const Map = forwardRef(
           ref={clearBoundsButtonRef}
           onClick={() => onSelectedBbox(null)}
         />
-        <ShowRasterButton
-          ref={showRasterButtonRef}
-          onClick={() => setShowRaster(!showRaster)}
-        />
+        {extraButtons}
       </div>
     );
   }
