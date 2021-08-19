@@ -1,0 +1,46 @@
+@import "../css/shared";
+
+.parcel-results {
+  max-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+@media (min-height: 430px){
+  .parcel-results {
+    max-height: 80vh; // works but is a bit of a hack
+  }
+}
+@media (min-height: 600px){
+  .parcel-results {
+    max-height: 85vh; // works but is a bit of a hack
+  }
+}
+@media (min-height: 880px){
+  .parcel-results {
+    max-height: 90vh; // works but is a bit of a hack
+  }
+}
+
+.parcel-results-list {
+  padding: 0 10px;
+  flex: 1 1 0px;
+}
+
+.parcel-results-pagination {
+  flex: 0 0 content;
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin: 10px auto;
+}
+
+.select-limit {
+  margin-left: auto;
+}
+
+.result-number{
+  margin-right: auto;
+  padding: 8px 12px;
+  border: 1px solid white;
+}

@@ -1,0 +1,38 @@
+@import "shared";
+
+// @import "../../../node_modules/react-grid-layout/css/styles.css";
+// @import "../../../node_modules/react-resizable/css/styles.css";
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; /* width & height include padding&border, but not margin*/
+  /* -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; /* text is not selectable*/
+  -ms-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none; /* whether to allow mobile browsers with small screens to adjust text siue */
+  -webkit-user-drag: none; /* disallow dragging of all elements */
+  /* vendor specific */
+  -webkit-touch-callout: none;
+  -ms-content-zooming: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background-color: $background-color;
+  color: $font-base-color;
+}

@@ -1,0 +1,45 @@
+@import "../css/shared";
+
+.entry-result {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border: 1px solid $faded-color;
+    border-radius: .25rem;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+    padding: 1rem;
+    transition: box-shadow 500ms;
+}
+.entry-result.emphasis{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.entry-result-number {
+    //padding: .5rem 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.entry-result-row {
+    margin-bottom: 0.8rem;
+}
+
+.entry-result-header {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+}
+.entry-result-label {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.entry-result-text {
+    font-size: 1rem;
+    margin: 0;
+}

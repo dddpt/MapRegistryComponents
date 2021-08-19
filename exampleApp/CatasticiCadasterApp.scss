@@ -1,0 +1,60 @@
+@import '../css/shared';
+
+
+.app {
+  flex: 1 1 0px;
+  transform: translate(0);
+}
+
+.gutter {
+  background-color: #eee;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  
+}
+
+.gutter-vertical {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
+  // transform: rotate(90deg);
+  cursor: row-resize;
+}
+
+.gutter-horizontal {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
+  cursor: col-resize;
+}
+
+.split-grid {
+  display: grid;
+  box-sizing:border-box;
+  // grid-template-rows: 0.35fr 5px 0.65fr;
+  grid-template-columns: 0.65fr 5px 0.35fr;
+
+  height: 100%;
+
+  margin:0;
+  // padding: 1rem;
+  //min-width: 80vw;
+  overflow:hidden;
+}
+
+.split-column {
+  min-width: 0%;
+  width: 100%;
+}
+
+.left-pane {
+  position: absolute;
+  z-index: 1;
+  top: 1em;
+  left: 1em;
+  overflow:hidden;
+
+  //as flex container:
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  min-width: 300px;
+  width: 15%;
+
+}

@@ -1,0 +1,34 @@
+@import '../css/shared';
+
+
+.dataset-search{
+  display: none;
+}
+.dataset-search.active{
+  display: block;
+}
+.dataset-result{
+  display: none;
+}
+.dataset-result.active{
+  display: block;
+  //height: 95vh;
+}
+
+.search {
+  margin:0;
+  padding: 1rem;
+  min-width: 200px;
+  flex-grow: 1;
+  flex-shrink: 2;
+  flex-basis: 0;
+}
+
+.pane {
+  margin:0;
+  // padding: 1rem;
+  min-width: 80vw;
+  flex-grow: 4;
+  flex-shrink: 1;
+  flex-basis: 0;
+}

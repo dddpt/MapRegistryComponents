@@ -1,0 +1,25 @@
+
+
+
+transition to generic todo
+--------------------------------
+
+catastici/cadaster specific architecture:
+- mapStyles inside map component folder
+- cadastici/cadaster search components inside src folder
+- pages
+- navbar
+- App
+
+problematic about it:
+- easy integration of dataset-specific components into generic architecture?
+- rapid coding
+
+proposition
+- DONE move Routes.js in pages/ folder (and rename it to website/)
+- DONE mapStyle becomes a props of the Map component
+- WIP rename the components/ folder to MapRegistryApp/
+    -> fork it to a new git repo
+        -> with a branch "cadaster-catastici" because it still has specific code (To be fixed later on)
+    -> DONE App.js is a mock-example of integration based on catastici/cadaster
+    -> MapRegistryApp/ is a git submodule of cadaster/catastici and of new apps
