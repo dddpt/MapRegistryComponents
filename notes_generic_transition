@@ -8,6 +8,7 @@ catastici/cadaster specific architecture:
 - mapStyles inside map component folder
 - cadastici/cadaster search components inside src folder
 - pages
+- Map showRasterButton
 - navbar
 - App
 
@@ -18,8 +19,8 @@ problematic about it:
 proposition
 - DONE move Routes.js in pages/ folder (and rename it to website/)
 - DONE mapStyle becomes a props of the Map component
-- WIP rename the components/ folder to MapRegistryComponents/
+- DONE rename the components/ folder to MapRegistryComponents/
     -> DONE fork it to a new git repo
-        -> with a branch "cadaster-catastici" because it still has specific code (To be fixed later on)
+        -> DONE move showRasterButton in cadaster-interface
     -> DONE App.js is a mock-example of integration based on catastici/cadaster
     -> DONE MapRegistryComponents/ is a git submodule of cadaster/catastici and of new apps
