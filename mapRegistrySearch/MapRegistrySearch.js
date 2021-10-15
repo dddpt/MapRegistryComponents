@@ -49,6 +49,7 @@ export function MapRegistrySearch({
   const [limit, setLimit] = useState(20);
 
   const [latestEntryIdClickedOnMap, setLatestEntryIdClickedOnMap] = useState(null);
+  const [latestEntriesClickedOnMap, setLatestEntriesClickedOnMap] = useState([]);// show-all-infos specifics
   const [latestEntryIdClickedOnVignette, setLatestEntryIdClickedOnVignette] = useState(null);
 
 
@@ -163,8 +164,9 @@ export function MapRegistrySearch({
     if (isActive && mapClickedFeatures && mapClickedFeatures.length > 0) {
       const mapFeatures = mapClickedFeatures.filter(mapFeaturesFilter)
       if(mapFeatures.length>0){
-        setLatestEntryIdClickedOnMap(mapFeatureToEntryId(mapFeatures[0]))
+        setLatestEntryIdClickedOnMap(mapFeatureToEntryId(mapFeatures[0]))// show-all-infos specifics
         setLatestEntryIdClickedOnVignette(null)
+        setLatestEntriesClickedOnMap(mapFeatures)
       }
     }
   }, [isActive, entryIdAndIndexList, mapFeatureToEntryId, mapClickedFeatures, mapFeaturesFilter])
@@ -207,6 +209,8 @@ export function MapRegistrySearch({
                 onEntryClick={handleEntryVignetteClick}
                 latestEntryIdClickedOnMap={latestEntryIdClickedOnMap}
                 latestEntryIdClickedOnVignette={latestEntryIdClickedOnVignette}
+                latestEntriesClickedOnMap={latestEntriesClickedOnMap} // show-all-infos specifics
+                mapFeatureToEntryId={mapFeatureToEntryId} // show-all-infos specifics
                 getEntryId={getEntryId}
                 onPageChange={handlePageChange}
                 onLimitChange={setLimit}

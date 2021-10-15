@@ -24,6 +24,8 @@ const ResultsList = forwardRef(
       onPageChange = () => {},
       onEntryClick = () => {},
       onLimitChange = () => {},
+      latestEntriesClickedOnMap=[],
+      mapFeatureToEntryId = ()=>{},
       EntryVignette
     },
     resultsListRef
@@ -99,6 +101,7 @@ const ResultsList = forwardRef(
                     className={([latestEntryIdClickedOnMap,latestEntryIdClickedOnVignette].includes((getEntryId(entry)))? " emphasis":" ")}
                     onClick={() => onEntryClick(entry)}
                     entry={entry}
+                    mapFeatures={latestEntriesClickedOnMap.filter(ecm=>mapFeatureToEntryId(ecm)==getEntryId(entry))}
                   />
                 );
               }) : <p>No results, sorry...</p>}
