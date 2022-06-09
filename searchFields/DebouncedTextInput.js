@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useDebouncedEffect } from "../effects/useDebouncedEffect";
 
-const DebouncedInput = ({ delay = 500, onChange = () => {} }) => {
+const DebouncedTextInput = ({ delay = 500, onChange = () => {} }) => {
   const [query, setQuery] = useState("");
 
   useDebouncedEffect(() => onChange(query), delay, [query]);
@@ -12,4 +12,4 @@ const DebouncedInput = ({ delay = 500, onChange = () => {} }) => {
   );
 };
 
-export default DebouncedInput;
+export default DebouncedTextInput;
