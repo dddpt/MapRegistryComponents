@@ -1,0 +1,1 @@
+# MapRegistryComponents: components to build a map+registry interface
