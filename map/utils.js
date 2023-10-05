@@ -1,9 +1,9 @@
 export const DEFAULT_LNG = 12.336;
 export const DEFAULT_LAT = 45.4383;
-export const DEFAULT_ZOOM = 14;
+export const DEFAULT_ZOOM = 12;
 export const BOUNDS = [
-  [12.308, 45.427],
-  [12.363, 45.449],
+  //[12.308, 45.427], [12.363, 45.449],
+  [12.28247, 45.39514], [12.36597, 45.46499],
 ];
 
 const stretchBounds = (bounds, verticalStretch, horizontalStretch) => {
